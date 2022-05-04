@@ -1,0 +1,21 @@
+{
+    "name": "poug0007/php-crud-music",
+    "description": "Développement d'une application Web de consultation et modification de morceaux de musique",
+    "type": "project",
+    "license": "Copyleft",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Elie Pouget",
+            "email": "elie.pouget@etudiant.univ-reims.fr"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*",
+        "friendsofphp/php-cs-fixer": "^3.8"
+    }
+}
