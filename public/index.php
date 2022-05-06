@@ -4,6 +4,7 @@ declare(strict_types=1);
 require_once '../vendor/autoload.php';
 
 use Database\MyPdo;
+use Html\WebPage;
 
 MyPDO::setConfiguration('mysql:host=mysql;dbname=cutron01_music;charset=utf8', 'web', 'web');
 
@@ -14,28 +15,25 @@ $stmt = MyPDO::getInstance()->prepare(
     ORDER BY name
 SQL
 );
+
 $stmt->execute();
 
-$html = <<<HTML
-    <!DOCTYPE html>
-    <html lang="fr">
-       <head>
-          <meta charset="UTF-8">
-          <title>Nom artiste</title>
-        </head>
-        <body>
-            <h1>Nom d'artiste</h1>
-HTML;
+$webPage = new \Html\WebPage();
+$webPage->setTitle('Nom artiste');
+
+$webPage->appendContent(
+    <<<HTML
+    <h1>Nom d'artiste</h1>
+HTML
+);
 
 while (($ligne = $stmt->fetch()) !== false) {
-    $html.=<<<HTML
-        <p>{$ligne['name']}</p>\n
-   HTML;
+    $res = WebPage::escapeString($ligne['name']);
+    $webPage->appendContent(
+        <<<HTML
+        <p>$res</p>\n
+   HTML
+    );
 }
 
-$html .= <<<HTML
-        </body>
-    </html>
-HTML;
-
-echo $html;
+echo $webPage->toHTML();

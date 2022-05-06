@@ -16,6 +16,7 @@
     ],
     "require": {
         "ext-pdo": "*",
-        "friendsofphp/php-cs-fixer": "^3.8"
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "ext-intl": "*"
     }
 }
