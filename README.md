@@ -20,3 +20,15 @@ Vérification manuel
 $php vendor/bin/php-cs-fixer fix --dry-run --diff
 (--dry-run test à blanc ne modifie rien)
 (--diff voir la différance entre l'original et le corrigé)
+
+
+## Composer
+### Run-server
+Pour lancer le serveur Web local vous pouvez utilisez le script du composer.json:
+composer run-server
+### Test:cs
+Permet de vérifier si notre code est bon est voir nos erreurs grâce à:
+composer test:cs
+### Fix:cs
+Permet de corriger les erreurs de notre code grâce à:
+composer fix:cs
