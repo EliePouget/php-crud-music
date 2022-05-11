@@ -32,3 +32,10 @@ composer test:cs
 ### Fix:cs
 Permet de corriger les erreurs de notre code grâce à:
 composer fix:cs
+
+## Configuration de la base de données
+### .mypdo.ini
+Pour accéder à la base de données
+dsn = mysql:host=mysql;dbname=cutron01_music;charset=utf8
+username = web
+password = web

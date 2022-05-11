@@ -206,7 +206,7 @@ final class MyPdo extends PDO
      * @throws PDOException Si le fichier des paramètres est invalide
      *
      */
-    private static function setConfigurationFromIniFile(): bool
+    public static function setConfigurationFromIniFile(): bool
     {
         // Environnement MyPdo défini ?
         $env = getenv('MYPDO_ENV', true) ?: '';
