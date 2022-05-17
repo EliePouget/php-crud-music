@@ -26,9 +26,10 @@ $web = new WebPage();
 while (($ligne = $art->fetch()) !== false) {
     $res = WebPage::escapeString($ligne['name']);
 }
-if ($artistId == null || $artistId > $res){
+if ($artistId > $res || $artistId < 0) {
     header('Location: http://localhost:8000/');
 }
+
 $web->setTitle('Albums de '.$res);
 $web->appendContent("<h1>Albums de ".$res."</h1>");
 

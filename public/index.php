@@ -27,9 +27,10 @@ HTML
 
 while (($ligne = $stmt->fetch()) !== false) {
     $res = WebPage::escapeString($ligne['name']);
+    $b = WebPage::escapeString($ligne['id']);
     $webPage->appendContent(
         <<<HTML
-        <p>$res</p>\n
+        <a href="artist.php?artistId=$b">$res</a><br>
    HTML
     );
 }
