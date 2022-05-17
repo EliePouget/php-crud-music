@@ -8,6 +8,11 @@
             "": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
     "authors": [
         {
             "name": "Elie Pouget",
@@ -23,6 +28,11 @@
         "run-server":"APP_DIR=\"$PWD\" php -d auto_prepend_file=\"$PWD/vendor/autoload.php\" -d display_errors -S localhost:8000 -t public/",
         "test:cs":"php vendor/bin/php-cs-fixer fix --dry-run --diff",
         "fix:cs":"php vendor/bin/php-cs-fixer fix --diff"
-            }
-        
+            },
+    "require-dev": {
+        "codeception/codeception": "^4.1",
+        "codeception/module-phpbrowser": "^1",
+        "codeception/module-asserts": "^1",
+        "codeception/module-db": "^1"
+    }
 }
