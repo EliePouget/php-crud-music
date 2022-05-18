@@ -10,7 +10,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests"
+            "Tests\\": "tests",
+            "": "tests/Crud/Collection/ArtistCollectionCest.php"
         }
     },
     "authors": [
@@ -25,10 +26,16 @@
         "ext-intl": "*"
     },
     "scripts":{
+        "test:crud": "php vendor/bin/codecept run Crud",
+        "test:codecept": "php vendor/bin/codecept run",
         "run-server":"APP_DIR=\"$PWD\" php -d auto_prepend_file=\"$PWD/vendor/autoload.php\" -d display_errors -S localhost:8000 -t public/",
         "test:cs":"php vendor/bin/php-cs-fixer fix --dry-run --diff",
-        "fix:cs":"php vendor/bin/php-cs-fixer fix --diff"
-            },
+        "fix:cs":"php vendor/bin/php-cs-fixer fix --diff",
+        "test":[
+            "@test:cs",
+            "@test:codecept"
+        ]
+    },
     "require-dev": {
         "codeception/codeception": "^4.1",
         "codeception/module-phpbrowser": "^1",

@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Entity\Collection;
 
+use Database\MyPdo;
 use Entity\Artist;
+use PDO;
 
 class ArtistCollection
 {
@@ -17,14 +19,14 @@ class ArtistCollection
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
-        SELECT name
+        SELECT name,id
         FROM artist
         ORDER BY name
         SQL
         );
 
         $stmt->execute();
-        $res = $stmt->fetchAll(PDO::FETCH_CLASS||PDO::FETCH_PROPS_LATE);
+        $res = $stmt->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Entity\Artist");
         return $res;
     }
 }

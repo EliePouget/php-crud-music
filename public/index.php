@@ -4,17 +4,9 @@ declare(strict_types=1);
 
 use Database\MyPdo;
 use Html\WebPage;
+use Entity\Artist;
 
-MyPDO::setConfigurationFromIniFile();
-$stmt = MyPDO::getInstance()->prepare(
-    <<<'SQL'
-    SELECT id, name
-    FROM artist
-    ORDER BY name
-SQL
-);
 
-$stmt->execute();
 
 $webPage = new \Html\WebPage();
 $webPage->setTitle('Nom artiste');
@@ -25,14 +17,14 @@ $webPage->appendContent(
 HTML
 );
 
-while (($ligne = $stmt->fetch()) !== false) {
-    $res = WebPage::escapeString($ligne['name']);
-    $b = WebPage::escapeString($ligne['id']);
-    $webPage->appendContent(
-        <<<HTML
-        <a href="artist.php?artistId=$b">$res</a><br>
-   HTML
-    );
-}
+$artist = new Artist();
+$res = WebPage::escapeString($artist->getName());
+$b = WebPage::escapeString((string)$artist->getId());
+$webPage->appendContent(
+    <<<HTML
+<a href="artist.php?artistId=$b">$res</a><br>
+HTML
+);
+
 
 echo $webPage->toHTML();

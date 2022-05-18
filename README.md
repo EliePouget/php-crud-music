@@ -23,15 +23,21 @@ $php vendor/bin/php-cs-fixer fix --dry-run --diff
 
 
 ## Composer
-### Run-server
+### run-server
 Pour lancer le serveur Web local vous pouvez utilisez le script du composer.json:
 composer run-server
-### Test:cs
+### test:cs
 Permet de vérifier si notre code est bon est voir nos erreurs grâce à:
 composer test:cs
-### Fix:cs
+### fix:cs
 Permet de corriger les erreurs de notre code grâce à:
 composer fix:cs
+### test:codecept
+Permet de vérifier le code grâce à l'ensemble des tests Codeception
+### test:crud
+Permet de vérifier le code grâce aux tests Crud
+### test
+Equivalent d'utiliser test:cs et test:codecept en même temps
 
 ## Configuration de la base de données
 ### .mypdo.ini
