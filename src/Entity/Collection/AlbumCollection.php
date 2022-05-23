@@ -19,13 +19,13 @@ class AlbumCollection
     {
         $album = MyPDO::getInstance()->prepare(
             <<<'SQL'
-            SELECT al.name, al.year
-            FROM album al INNER JOIN artist ar ON (al.artistId=ar.id)
-            WHERE ar.id = :id
-            ORDER BY al.year DESC, al.name;
+            SELECT id, name, year, artistId, genreId, coverId
+            FROM album
+            WHERE artistId = :id
+            ORDER BY year DESC, name;
         SQL
         );
-        $album->bindParam(':id', $artistId, PDO::PARAM_INT);
+        $album->bindParam(':id', $artistId);
         $album->execute();
         $res = $album->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Entity\Album");
         return $res;
