@@ -1,0 +1,35 @@
+html,body{
+
+}
+h1{
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue;
+}
+.content{
+    overflow: auto;
+    max-height : 820px;
+
+}
+
+a{
+    display: flex;
+    justify-content: center;
+}
+.album{
+    display: flex;
+    margin:1em;
+    font-size: 22px;
+    flex-direction: row;
+}
+.album__year{
+    margin-right: 0.3em;
+    text-decoration: underline;
+}
+
+.footer{
+    display: flex;
+    font-style: italic;
+    justify-content: right;
+    font-size: 20px;
+}

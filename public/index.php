@@ -7,18 +7,14 @@ use Html\WebPage;
 use Entity\Artist;
 use Entity\Collection\ArtistCollection;
 
-$webPage = new \Html\WebPage();
+$webPage = new \Html\AppWebPage();
 $webPage->setTitle('Nom artiste');
-
-$webPage->appendContent(
-    <<<HTML
-    <h1>Nom d'artiste</h1>
-HTML
-);
+$webPage->appendCssUrl('css\style.css');
 
 $artistCollection = new ArtistCollection();
 $artistCollection = $artistCollection->findAll();
 
+$webPage->appendContent("<div class=list>");
 foreach ($artistCollection as $artist) {
     $webPage->appendContent(
         <<<HTML
@@ -26,6 +22,6 @@ foreach ($artistCollection as $artist) {
 HTML
     );
 }
-
+$webPage->appendContent("</div>");
 
 echo $webPage->toHTML();
