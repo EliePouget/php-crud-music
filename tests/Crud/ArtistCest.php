@@ -1,6 +1,9 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Tests\Crud;
+
 use Entity\Artist;
 use Entity\Exception\EntityNotFoundException;
 use Tests\CrudTester;

@@ -36,8 +36,10 @@ composer fix:cs
 Permet de vérifier le code grâce à l'ensemble des tests Codeception
 ### test:crud
 Permet de vérifier le code grâce aux tests Crud
+### test:browse
+Permet d'effectuer les test de la fonctionnalité browse
 ### test
-Equivalent d'utiliser test:cs et test:codecept en même temps
+Equivalent d'utiliser test:cs, test:browse et test:codecept en même temps
 
 ## Configuration de la base de données
 ### .mypdo.ini
